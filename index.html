@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Expense Tracker | Budget App</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="app-container">
+		<header>
+			<p>Total Balanse</p>
+			<h1>$0.00</h1>
+		</header>
+
+		<section class="summary-card">
+			<div class="summary-item income">
+				<span class="label">Income</span>
+				<p id="money-plus" class="amount">+$0.00</p>
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="summary-item expense">
+				<span class="label">Expenses</span>
+				<p id="money-minus" class="amount">-$0.00</p>
+			</div>
+		</section>
+
+		<section class="history">
+			<h3>Transaction History</h3>
+			<ul id="list" class="transaction-list"></ul>
+		</section>
+
+		<div class="add-transaction">
+			<h3>New Transaction</h3>
+			<form id="form">
+				<div class="input-group">
+					<input type="text" id="text" placeholder="Entry name (e.g., Salary, Coffee)" required>
+				</div>
+				<div class="input-group">
+					<input type="number" id="amount" placeholder="Amount (negative - expense, positive - income)" required
+						step="0.01">
+				</div>
+				<button>Add Transaction</button>
+			</form>
+		</div>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>
