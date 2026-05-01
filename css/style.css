@@ -91,7 +91,7 @@ input:focus{
 	border-color: var(--text-secondary);
 }
 
-button{
+.submit-btn{
 	width: 100%;
 	border-color: var(--text-primary);
 	color: var(--bg-main);
@@ -104,6 +104,6 @@ button{
 	margin-top: 10px;
 }
 
-button:hover{
+.submit-btn:hover{
 	opacity: 0.9;
 }
