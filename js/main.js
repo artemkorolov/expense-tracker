@@ -28,6 +28,8 @@ function addTransaction(event) {
 	transactions.push(transaction);
 	console.log(transactions);
 
+	addTransactionDOM(transaction);
+
 	text.value = '';
 	amount.value = '';
 }
@@ -38,3 +40,22 @@ function generateId() {
 	return Math.floor(Math.random() * 100000000);
 }
 
+function addTransactionDOM(transaction) {
+	const sign = transaction.amount < 0 ? '-' : '+';
+	const item = document.createElement('li');
+
+	item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
+
+	item.innerHTML = `
+	<span class="text-content"></span>
+	<span>${sign}${Math.abs(transaction.amount)}</span>
+	`;
+
+	const textElement = item.querySelector('.text-content');
+	if (textElement) {
+		textElement.textContent = transaction.text;
+	}
+
+	const list = document.getElementById('list');
+	list?.appendChild(item);
+}
