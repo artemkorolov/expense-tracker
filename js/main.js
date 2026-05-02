@@ -20,6 +20,7 @@ function addTransactionDOM(transaction) {
 	item.innerHTML = `
 	<span class="text-content"></span>
 	<span>${sign}${Math.abs(transaction.amount)}</span>
+	<button class="delete-btn" onclick ="removeTransaction(${transaction.id})">Delete</button>
 	`;
 
 	const textElement = item.querySelector('.text-content');
@@ -50,6 +51,14 @@ function updateValues() {
 
 }
 
+function init() {
+	const list = document.getElementById('list');
+	if (list) list.innerHTML = '';
+
+	transactions.forEach(addTransactionDOM);
+	updateValues();
+}
+
 function addTransaction(event) {
 	event.preventDefault();
 
@@ -72,13 +81,16 @@ function addTransaction(event) {
 	};
 
 	transactions.push(transaction);
-	console.log(transactions);
-
-	addTransactionDOM(transaction);
-	updateValues();
 
 	text.value = '';
 	amount.value = '';
+
+	init();
+}
+
+function removeTransaction(id) {
+	transactions = transactions.filter(transaction => transaction.id !== id);
+	init();
 }
 
 form?.addEventListener('submit', addTransaction);
