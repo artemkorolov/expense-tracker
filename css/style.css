@@ -61,7 +61,7 @@ body {
 	border-radius: 12px;
 	display: flex;
 	padding: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 35px;
 }
 
 .divider {
@@ -72,7 +72,7 @@ body {
 
 h3 {
 	border-bottom: 1px solid var(--border);
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 
 .transaction-list {
@@ -82,13 +82,21 @@ h3 {
 
 .transaction-list li {
 	border-color: var(--card-bg);
-	border: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	margin: 10px 0;
-	border-radius: 8px;
 	position: relative;
+}
+
+.transaction-list li span:first-child {
+	flex: 1;
+	text-align: left;
+}
+
+.transaction-list li span:nth-child(2) {
+	text-align: right;
+	margin-right: 20px;
 }
 
 .input-group {
@@ -134,6 +142,10 @@ input:focus {
 	border-right: 3px solid var(--accent-danger);
 }
 
+.transaction-list li span {
+	font-size: 13px;
+}
+
 .delete-btn {
 	background: none;
 	border: none;
@@ -150,6 +162,9 @@ input:focus {
 }
 
 @media(max-width: 768px) {
+	.control-panel{
+		min-width: auto;
+	}
 	.main-content {
 		flex-direction: column;
 	}
