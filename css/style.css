@@ -23,6 +23,11 @@ body {
 	padding-top: 40px;
 }
 
+h3 {
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 20px;
+}
+
 .app-container {
 	width: 100%;
 	max-width: 900px;
@@ -70,11 +75,6 @@ body {
 	margin: 0 20px;
 }
 
-h3 {
-	border-bottom: 1px solid var(--border);
-	padding-bottom: 20px;
-}
-
 .transaction-list {
 	list-style-type: none;
 	padding: 0;
@@ -97,6 +97,33 @@ h3 {
 .transaction-list li span:nth-child(2) {
 	text-align: right;
 	margin-right: 20px;
+}
+
+.transaction-info {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	text-align: left;
+}
+
+.transaction-date {
+	font-size: 10px;
+	color: var(--text-secondary);
+	margin-top: 2px;
+}
+
+.transaction-list li.plus {
+	border-right: 3px solid var(--accent-success);
+}
+
+.transaction-list li.minus {
+	border-right: 3px solid var(--accent-danger);
+}
+
+.transaction-list li span {
+	font-size: 13px;
+	display: flex;
+	align-items: center;
 }
 
 .input-group {
@@ -134,18 +161,6 @@ input:focus {
 	opacity: 0.9;
 }
 
-.transaction-list li.plus {
-	border-right: 3px solid var(--accent-success);
-}
-
-.transaction-list li.minus {
-	border-right: 3px solid var(--accent-danger);
-}
-
-.transaction-list li span {
-	font-size: 13px;
-}
-
 .delete-btn {
 	background: none;
 	border: none;
@@ -162,9 +177,10 @@ input:focus {
 }
 
 @media(max-width: 768px) {
-	.control-panel{
+	.control-panel {
 		min-width: auto;
 	}
+
 	.main-content {
 		flex-direction: column;
 	}

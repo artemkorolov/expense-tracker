@@ -30,7 +30,10 @@ function addTransactionDOM(transaction) {
 	item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
 
 	item.innerHTML = `
-	<span class="text-content"></span>
+	<div class="transaction-info">
+		<span class="text-content"></span>
+		<small class="transaction-date">${transaction.date || ''}</small>
+	</div>
 	<span>${sign}${Math.abs(transaction.amount)}</span>
 	<button class="delete-btn" onclick ="removeTransaction(${transaction.id})">Delete</button>
 	`;
@@ -90,6 +93,13 @@ function addTransaction(event) {
 		id: generateId(),
 		text: transactionName,
 		amount: +transactionAmount,
+		date: new Date().toLocaleDateString('uk-UA', {
+			day: '2-digit',
+			month: '2-digit',
+			year: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit'
+		})
 	};
 
 	transactions.push(transaction);
@@ -110,10 +120,3 @@ function removeTransaction(id) {
 init();
 
 form?.addEventListener('submit', addTransaction);
-
-
-
-
-
-
-
