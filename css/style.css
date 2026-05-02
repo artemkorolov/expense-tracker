@@ -57,12 +57,12 @@ h3 {
 	margin-top: 40px;
 }
 
-.transaction-list{
+.transaction-list {
 	list-style-type: none;
 	padding: 0;
 }
 
-.transaction-list li{
+.transaction-list li {
 	border-color: var(--card-bg);
 	border: 1px solid var(--border);
 	display: flex;
@@ -73,7 +73,7 @@ h3 {
 	position: relative;
 }
 
-.input-group{
+.input-group {
 	margin: 10px 0;
 }
 
@@ -86,12 +86,12 @@ input {
 	border-radius: 6px;
 }
 
-input:focus{
+input:focus {
 	outline: none;
 	border-color: var(--text-secondary);
 }
 
-.submit-btn{
+button {
 	width: 100%;
 	border-color: var(--text-primary);
 	color: var(--bg-main);
@@ -104,6 +104,14 @@ input:focus{
 	margin-top: 10px;
 }
 
-.submit-btn:hover{
+button:hover {
 	opacity: 0.9;
+}
+
+.transaction-list li.plus {
+	border-right: 3px solid var(--accent-success);
+}
+
+.transaction-list li.minus {
+	border-right: 3px solid var(--accent-danger);
 }
