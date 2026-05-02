@@ -5,7 +5,19 @@ const balance = document.getElementById('balance');
 const moneyPlus = document.getElementById('money-plus');
 const moneyMinus = document.getElementById('money-minus');
 
-let transactions = [];
+const rawData = localStorage.getItem('transactions');
+
+let transactions;
+
+if (rawData !== null) {
+	transactions = JSON.parse(rawData);
+} else {
+	transactions = [];
+}
+
+function updateLocalStorage() {
+	localStorage.setItem('transactions', JSON.stringify(transactions));
+}
 
 function generateId() {
 	return Math.floor(Math.random() * 100000000);
@@ -86,14 +98,19 @@ function addTransaction(event) {
 	amount.value = '';
 
 	init();
+	updateLocalStorage();
 }
 
 function removeTransaction(id) {
 	transactions = transactions.filter(transaction => transaction.id !== id);
 	init();
+	updateLocalStorage();
 }
 
+init();
+
 form?.addEventListener('submit', addTransaction);
+
 
 
 
